@@ -1,6 +1,9 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  padding: 0;
+  width : 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont,"Montserrat", "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,4 +13,83 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+
+/* Navbar */
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  background-color: #333333;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+}
+
+.logo {
+  position: absolute;
+  flex-grow: 1;
+  margin-left: 10%;
+}
+
+.logo h2{
+  font-size: 30px;
+  color: white;
+  z-index: 5;
+  margin: 0;
+} 
+
+/* Navigation */
+
+.navigation {
+  margin-right: 10%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 1;
+  
+}
+
+.navigation form>button {
+  font-size: 17px;
+  background-color: #333333;
+  color: azure;
+  border-color: #333333;
+}
+
+.ham-icon {
+  display: none;
+}
+
+/* Media Screen */
+
+@media only screen and (max-width: 1000px) {
+  .navigation {
+    display: none;
+  }
+
+  .margin-media {
+    margin-top: 10px;
+  }
+
+  .ham-icon {
+    display: flex;
+    flex-grow: 1;
+    margin-left: 30px;
+    cursor: pointer;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo {
+    margin-left: 0%;
+  }
 }
