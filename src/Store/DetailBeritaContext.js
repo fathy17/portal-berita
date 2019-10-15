@@ -11,9 +11,9 @@ const DetailBeritaContextProvider = (props) => {
         Axios.get(`/wp-json/wp/v2/berita/${beritaId}`)
             .then(res => setDetailBerita(res.data))
             .catch(err => console.log(err))
-    }, [])
+    }, [beritaId])
 
-    console.log(beritaId, detailBerita)
+    
     return ( 
         <DetailBeritaContext.Provider value={{detailBerita, setBeritaId, beritaId, setBeritaId}}>
             {props.children}
@@ -21,4 +21,4 @@ const DetailBeritaContextProvider = (props) => {
      );
 }
  
-export default DetailBeritaContextProvider;
+export default DetailBeritaContextProvider

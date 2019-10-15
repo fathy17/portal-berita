@@ -3,9 +3,12 @@ import { Grid, Box } from '@material-ui/core';
 import { FaFacebook, FaTwitter, FaWhatsapp } from 'react-icons/fa'
 import { DetailBeritaContext } from '../../Store/DetailBeritaContext';
 
-const NewsDetail = () => {
+const NewsDetail = ({berita}) => {
 
-    const { detailBerita } = useContext(DetailBeritaContext)
+    const { detailBerita, setBeritaId } = useContext(DetailBeritaContext)
+
+    setBeritaId(berita)
+
     console.log(detailBerita)
 
     return (

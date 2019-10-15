@@ -4,13 +4,10 @@ import { Grid, Box } from '@material-ui/core';
 import { DetailBeritaContext } from '../../Store/DetailBeritaContext';
 
 const Test = ({data}) => {
-
-    const {beritaId, setBeritaId} = useContext(DetailBeritaContext)
-    console.log(beritaId)
     
     return ( 
         <Grid item xs={12} sm={6} md={6} lg={6} xl={6} >
-                                <Link to={`/berita/${data.id}`} onMouseEnter={() => setBeritaId(data.id)}>
+                                <Link to={`/berita/${data.id}`} >
                                     <Box style={{
                                         position: 'relative',
                                         backgroundColor: 'grey', height: '320px', borderRadius: '6px',
