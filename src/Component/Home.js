@@ -1,22 +1,27 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import News from './Home/News'
 import Populer from './Home/Populer'
 import Terbaru from './Home/Terbaru'
-import BeritaContextProvider from '../Store/BeritaContext';
-import DetailBeritaContextProvider from '../Store/DetailBeritaContext';
+import BeritaContextProvider, { BeritaContext } from '../Store/BeritaContext';
+import { CircularProgress } from '@material-ui/core';
 
 
 const Home = () => {
+    const { berita } = useContext(BeritaContext)
     return (
-        <Fragment>
-            <DetailBeritaContextProvider>
-                <BeritaContextProvider>
+        <BeritaContextProvider>
+            {berita.length ? (
+                <Fragment>
                     <News />
                     <Populer />
                     <Terbaru />
-                </BeritaContextProvider>
-            </DetailBeritaContextProvider>
-        </Fragment>
+                </Fragment>
+            ) : (
+                    <div style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '1000000' }}>
+                        <CircularProgress />
+                    </div>
+                )}
+        </BeritaContextProvider>
     );
 }
 

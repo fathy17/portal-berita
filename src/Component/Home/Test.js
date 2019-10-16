@@ -1,7 +1,6 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom'
 import { Grid, Box } from '@material-ui/core';
-import { DetailBeritaContext } from '../../Store/DetailBeritaContext';
 
 const Test = ({data}) => {
     

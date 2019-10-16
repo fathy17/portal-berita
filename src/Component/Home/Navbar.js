@@ -20,7 +20,7 @@ function HideOnScroll(props) {
 
 const useStyles = makeStyles({
     paper: {
-      background: '#333333',
+      background: '#293462',
       color: 'white'
     }
   });

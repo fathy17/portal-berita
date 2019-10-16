@@ -9,7 +9,7 @@ const Navigation = () => {
                 <h4 style={{ marginRight: '20px', fontSize: '12px', color:'white' }}>SOSIAL</h4>
                 <h4 style={{ marginRight: '20px', fontSize: '12px', color:'white' }}>POLITIK</h4>
                 <h4 style={{ marginRight: '20px', fontSize: '12px', color:'white' }}>KRIMINAL</h4>
-                <Link to='/tags/565' style={{ textDecoration: 'none', color: 'black' }}><h4 style={{ marginRight: '20px', fontSize: '12px', color:'white' }}>OLAHRAGA</h4></Link>
+                <Link to='/tags/olahraga' style={{ textDecoration: 'none', color: 'black' }}><h4 style={{ marginRight: '20px', fontSize: '12px', color:'white' }}>OLAHRAGA</h4></Link>
                 <h4 style={{ marginRight: '20px', fontSize: '12px', color:'white' }}>DAERAH</h4>
                 <form >
                     <input type="text" style={{ height: '17px', fontSize: '12px' }}></input>

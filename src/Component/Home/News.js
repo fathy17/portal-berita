@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Grid, Box, CircularProgress } from '@material-ui/core';
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { Grid, CircularProgress } from '@material-ui/core';
 import { BeritaContext } from '../../Store/BeritaContext'
 import Test from './Test';
 
@@ -21,7 +20,7 @@ const News = () => {
                     </Grid>
                 </div>
             ) : (
-                    <div style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '1000000' }}>
+                    <div style={{ width: '100%', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '1000000' }}>
                         <CircularProgress />
                     </div>
                 )}
@@ -30,4 +29,4 @@ const News = () => {
 
 }
 
-export default News;    
+export default News; 

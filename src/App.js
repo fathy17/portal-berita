@@ -2,9 +2,10 @@ import React, { Fragment } from 'react';
 import Home from './Component/Home';
 import NewsDetails from './Component/NewsDetails';
 import { BrowserRouter, Route } from 'react-router-dom'
-import Tags from './Component/Tags';
 import Navbar from './Component/Home/Navbar'
 import Footer from './Component/Home/Footer'
+import BeritaContextProvider from './Store/BeritaContext';
+import Olahraga from './Component/Tags/Olahraga'
 
 function App() {
   return (
@@ -12,9 +13,11 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <div style={{ margin: '0 10%' }}>
+          <BeritaContextProvider>
             <Route exact path='/' component={Home} />
             <Route path='/berita/:id' component={NewsDetails} />
-            <Route path='/tags/:id' component={Tags} />
+            <Route path='/tags/olahraga' component={Olahraga} />
+          </BeritaContextProvider>
         </div>
         <br />
         <Footer />
