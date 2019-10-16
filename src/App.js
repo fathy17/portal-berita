@@ -6,6 +6,10 @@ import Navbar from './Component/Home/Navbar'
 import Footer from './Component/Home/Footer'
 import BeritaContextProvider from './Store/BeritaContext';
 import Olahraga from './Component/Tags/Olahraga'
+import Daerah from './Component/Tags/Daerah';
+import Sosial from './Component/Tags/Sosial';
+import Kriminal from './Component/Tags/Kriminal';
+import Politik from './Component/Tags/Politik';
 
 function App() {
   return (
@@ -17,6 +21,10 @@ function App() {
             <Route exact path='/' component={Home} />
             <Route path='/berita/:id' component={NewsDetails} />
             <Route path='/tags/olahraga' component={Olahraga} />
+            <Route path='/tags/Daerah' component={Daerah} />
+            <Route path='/tags/Kriminal' component={Kriminal} />
+            <Route path='/tags/Politik' component={Politik} />
+            <Route path='/tags/Sosial' component={Sosial} />
           </BeritaContextProvider>
         </div>
         <br />

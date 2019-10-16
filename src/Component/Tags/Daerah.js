@@ -2,19 +2,20 @@ import React, { Fragment, useContext } from 'react';
 import { Grid, Box, CircularProgress } from '@material-ui/core';
 import { BeritaContext } from '../../Store/BeritaContext';
 
-const Olahraga = () => {
+const Daerah = () => {
     const { berita } = useContext(BeritaContext)
 
-    let data = berita.filter(item => item.acf.tag[0] === "Olahraga")
+    const tag = "Daerah"
+    let data = berita.filter(item => item.acf.tag[0] === tag || item.acf.tag[1] === tag 
+    || item.acf.tag[2] === tag || item.acf.tag[3] === tag || item.acf.tag[4] === tag)
 
-    console.log(data)
     return (
         <Fragment>
             <div style={{ marginTop: '80px' }}>
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={12} md={7} lg={7} xl={7}>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '15px' }}>
-                            <h2 style={{ margin: '0 15px 0 0', fontSize: '24px', letterSpacing: '0.25em', fontWeight: 'bold' }}>OLAHRAGA</h2>
+                            <h2 style={{ margin: '0 15px 0 0', fontSize: '24px', letterSpacing: '0.25em', fontWeight: 'bold' }}>DAERAH</h2>
                             <div style={{ width: '100%', height: '5px', backgroundColor: '#333333' }}></div>
                         </div>
                         <Grid container spacing={3}>
@@ -68,4 +69,4 @@ const Olahraga = () => {
     );
 }
 
-export default Olahraga
+export default Daerah

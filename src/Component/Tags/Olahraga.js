@@ -4,11 +4,10 @@ import { BeritaContext } from '../../Store/BeritaContext';
 
 const Olahraga = () => {
     const { berita } = useContext(BeritaContext)
-    const tag = "Sosial"
+    const tag = "Olahraga"
     let data = berita.filter(item => item.acf.tag[0] === tag || item.acf.tag[1] === tag 
     || item.acf.tag[2] === tag || item.acf.tag[3] === tag || item.acf.tag[4] === tag)
 
-    console.log(data, berita)
     return (
         <Fragment>
             <div style={{ marginTop: '80px' }}>

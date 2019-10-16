@@ -29,7 +29,11 @@ const Populer = () => {
                                         <div style={{ height: '100px' }}>
                                             <div style={{ fontFamily: 'Raleway', fontSize: '14px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
                                         </div>
-                                        <button style={{ width: '62px', height: '17px', backgroundColor: 'grey', fontSize: '7px', border: 'none', borderRadius: '3px', cursor: 'pointer' }}>OLAHRAGA</button>
+                                        {data.acf.tag.map(item=>{
+                                            return (
+                                                <button key={item} style={{ width: '62px', height: '17px', backgroundColor: 'grey', fontSize: '7px', border: 'none', borderRadius: '3px', cursor: 'pointer', marginRight:'5px' }}>{item}</button>
+                                            )
+                                        })}
                                     </Grid>
                                 )
                             })}

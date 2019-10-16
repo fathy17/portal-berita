@@ -26,8 +26,12 @@ const Terbaru = () => {
                                             <Grid item xs={12} sm={12} md={7} lg={7} xl={7}>
                                                 <h2 style={{ marginTop: '10px', fontWeight: '600', fontSize: '12px', fontStyle: 'normal' }}>{data.title.rendered}</h2>
                                                 <h2 style={{ fontWeight: '600', fontSize: '9px', color: '#808080' }}>{data.acf.penulis}</h2>
-                                                <div style={{ fontSize: '11px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
-                                                <button style={{ width: '62px', height: '17px', backgroundColor: 'grey', fontSize: '7px', border: 'none', borderRadius: '3px', cursor: 'pointer' }}>OLAHRAGA</button>
+                                                <div style={{ fontSize: '11px', height: '70px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
+                                                {data.acf.tag.map(item => {
+                                                    return (
+                                                        <button key={item} style={{ width: '62px', height: '17px', backgroundColor: 'grey', fontSize: '7px', border: 'none', borderRadius: '3px', cursor: 'pointer', marginRight: '5px' }}>{item}</button>
+                                                    )
+                                                })}
                                             </Grid>
                                             <hr style={{ height: '2px', width: '100%', border: 'none', backgroundColor: 'grey' }} />
                                         </Fragment>
