@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import { Grid, Box } from '@material-ui/core';
+import Moment from 'react-moment'
 
 const Test = ({data}) => {
-    
     return ( 
         <Grid item xs={12} sm={6} md={6} lg={6} xl={6} >
                                 <Link to={`/berita/${data.id}`} >
@@ -38,7 +38,7 @@ const Test = ({data}) => {
                                             zIndex:'3'
                                         }}>
                                             <h2 style={{ fontWeight: 'bold', textTransform: 'uppercase', fontSize: '18px', lineHeight:'22px' }} >{data.title.rendered}</h2>
-                                            <h2 style={{ fontWeight: 'bold', textTransform: 'uppercase', fontSize: '10px' }}>{data.acf.penulis}</h2>
+                                            <h2 style={{ fontWeight: 'bold', textTransform: 'uppercase', fontSize: '10px' }}>{data.acf.penulis} - <Moment locale="id" format="Do MMMM YYYY">{data.date}</Moment></h2>
                                         </div>
                                     </Box>
                                 </Link>

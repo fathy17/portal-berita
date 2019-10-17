@@ -4,6 +4,7 @@ import { FaFacebook, FaTwitter, FaWhatsapp } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import Axios from 'axios'
 import { BeritaContext } from '../../Store/BeritaContext';
+import Moment from 'react-moment'
 
 const NewsDetail = ({ beritaDetail }) => {
     const { berita } = useContext(BeritaContext)
@@ -32,7 +33,7 @@ const NewsDetail = ({ beritaDetail }) => {
                                 backgroundRepeat: 'no-repeat', backgroundColor: 'grey', width: '100%', height: '380px'
                             }} />
                             <h1 style={{ fontSize: '24px', fontWeight: 'bold', lineHeight: '29px' }}>{detail[0].title.rendered}</h1>
-                            <h5 style={{ textTransform: 'uppercase', fontSize: '10px', fontWeight: '600', color: '#808080' }}>{detail[0].acf.penulis}</h5>
+                            <h5 style={{ textTransform: 'uppercase', fontSize: '10px', fontWeight: '600', color: '#808080' }}>{detail[0].acf.penulis} - <Moment locale="id" format="Do MMMM YYYY">{detail[0].date}</Moment></h5>
                             {detail[0].acf.tag.map(item => {
                                 return (
                                     <Fragment key={item}>

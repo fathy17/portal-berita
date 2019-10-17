@@ -2,6 +2,7 @@ import React, { Fragment, useContext } from 'react';
 import { Grid, Box, CircularProgress } from '@material-ui/core';
 import { Link } from 'react-router-dom'
 import { BeritaContext } from '../../Store/BeritaContext';
+import Moment from 'react-moment'
 
 
 const Populer = () => {
@@ -25,7 +26,7 @@ const Populer = () => {
                                         <Link to={`/berita/${data.id}`} style={{ textDecoration: 'none', color: 'black' }}>
                                             <h2 style={{ marginTop: '10px', fontWeight: '600', fontSize: '18px', fontStyle: 'normal', color:'#293462' }}>{data.title.rendered}</h2>
                                         </Link>
-                                        <h2 style={{ fontWeight: '600', fontSize: '12px', color: '#808080' }}>{data.acf.penulis}</h2>
+                                        <h2 style={{ fontWeight: '600', fontSize: '12px', color: '#808080' }}>{data.acf.penulis} - <Moment locale="id" format="Do MMMM YYYY">{data.date}</Moment></h2>
                                         <div style={{ height: '100px' }}>
                                             <div style={{ fontFamily: 'Raleway', fontSize: '14px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
                                         </div>
