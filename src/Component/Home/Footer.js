@@ -8,7 +8,7 @@ const Footer = () => {
             left: '0',
             bottom: '0',
             width: '100%',
-            backgroundColor: '#333333',
+            backgroundColor: '#293462',
             color: 'white',
             display: 'flex',
             height: '100px',

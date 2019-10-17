@@ -26,7 +26,7 @@ const Test = ({data}) => {
                                         backgroundSize: 'cover',
                                         backgroundRepeat: 'no-repeat',
                                         zIndex:'2',
-                                        opacity:'0.3'
+                                        opacity:'0.2'
                                     }}/>
                                         <div style={{
                                             textAlign: 'center',
@@ -37,7 +37,7 @@ const Test = ({data}) => {
                                             color: 'white',
                                             zIndex:'3'
                                         }}>
-                                            <h2 style={{ fontWeight: 'bold', textTransform: 'uppercase', fontSize: '15px' }} >{data.title.rendered}</h2>
+                                            <h2 style={{ fontWeight: 'bold', textTransform: 'uppercase', fontSize: '18px', lineHeight:'22px' }} >{data.title.rendered}</h2>
                                             <h2 style={{ fontWeight: 'bold', textTransform: 'uppercase', fontSize: '10px' }}>{data.acf.penulis}</h2>
                                         </div>
                                     </Box>

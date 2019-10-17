@@ -4,7 +4,7 @@ import NewsDetail from './News Detail/NewsDetail'
 const NewsDetails = (props) => {
     return (
         <Fragment>
-                <NewsDetail berita={props.match.params.id}/>
+                <NewsDetail beritaDetail={props.match.params.id}/>
         </Fragment>
     );
 }

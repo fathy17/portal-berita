@@ -68,7 +68,7 @@ code {
 
 /* Media Screen */
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 600px) {
   .navigation {
     display: none;
   }
@@ -91,5 +91,17 @@ code {
 
   .logo {
     margin-left: 0%;
+  }
+
+  .gridMobile {
+    padding-right: 0 !important;
+  }
+
+  .boxMobile {
+    height:215px !important ;
+  }
+  
+  .boxMobile img {
+    height:215px !important ;
   }
 }

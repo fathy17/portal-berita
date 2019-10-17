@@ -1,13 +1,13 @@
 import React, { Fragment, useContext } from 'react';
 import { Grid, Box, CircularProgress } from '@material-ui/core';
 import { BeritaContext } from '../../Store/BeritaContext';
+import { Link } from 'react-router-dom'
 
 const Kriminal = () => {
     const { berita } = useContext(BeritaContext)
-
     const tag = "Kriminal"
-    let data = berita.filter(item => item.acf.tag[0] === tag || item.acf.tag[1] === tag 
-    || item.acf.tag[2] === tag || item.acf.tag[3] === tag || item.acf.tag[4] === tag)
+    let data = berita.filter(item => item.acf.tag[0] === tag || item.acf.tag[1] === tag
+        || item.acf.tag[2] === tag || item.acf.tag[3] === tag || item.acf.tag[4] === tag)
 
     return (
         <Fragment>
@@ -15,34 +15,45 @@ const Kriminal = () => {
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={12} md={7} lg={7} xl={7}>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '15px' }}>
-                            <h2 style={{ margin: '0 15px 0 0', fontSize: '24px', letterSpacing: '0.25em', fontWeight: 'bold' }}>KRIMINAL</h2>
-                            <div style={{ width: '100%', height: '5px', backgroundColor: '#333333' }}></div>
+                            <h2 style={{ margin: '0 15px 0 0', fontSize: '24px', letterSpacing: '0.2em', fontWeight: 'bold', color: '#293462' }}>KRIMINAL</h2>
+                            <div style={{ width: '100%', height: '5px', backgroundColor: '#293462' }}></div>
                         </div>
                         <Grid container spacing={3}>
-                        {data.length ? (
-                            <Fragment>
-                            {data.map(item => {
-                                return (
-                                    <Fragment key={item.id}>
-                                    <Grid item xs={12} sm={12} md={5} lg={5} xl={5} >
-                                        <Box style={{ backgroundColor: 'grey', height: '120px', borderRadius: '6px' }}></Box>
-                                    </Grid>
-                                    <Grid item xs={12} sm={12} md={7} lg={7} xl={7}>
-                                        <h2 style={{ marginTop: '10px', fontWeight: '600', fontSize: '12px', fontStyle: 'normal' }}>{item.title.rendered}</h2>
-                                        <h2 style={{ fontWeight: '600', fontSize: '9px', color: '#808080' }}>{item.acf.penulis}</h2>
-                                        <p style={{ fontSize: '11px' }}>Lorem ipsum dolor sit amet Lorem ipsum dolor</p>
-                                        <button style={{ width: '62px', height: '17px', backgroundColor: 'grey', fontSize: '7px', border: 'none', borderRadius: '3px', cursor: 'pointer' }}>OLAHRAGA</button>
-                                    </Grid>
-                                    <hr style={{ height: '2px', width: '100%', border: 'none', backgroundColor: 'grey' }} />
+                            {data.length ? (
+                                <Fragment>
+                                    {data.map(data => {
+                                        return (
+                                            <Fragment key={data.id}>
+                                                <Grid item xs={12} sm={12} md={5} lg={5} xl={5}>
+                                                    <Box className="boxMobile" style={{ backgroundColor: 'grey', height: '145px', width: '100%', borderRadius: '6px' }}>
+                                                        <img src={data.acf.gambar} alt={data.title.rendered} style={{ objectFit: 'cover', backgroundColor: 'grey', height: '145px', width: '100%', borderRadius: '6px' }} />
+                                                    </Box>
+                                                </Grid>
+                                                <Grid item xs={12} sm={12} md={7} lg={7} xl={7}>
+                                                    <Link to={`/berita/${data.id}`} style={{ textDecoration: 'none' }}>
+                                                        <h2 style={{ marginTop: '10px', marginBottom: '10px', fontWeight: '600', fontSize: '18px', fontStyle: 'normal', color: '#293462' }}>{data.title.rendered}</h2>
+                                                    </Link>
+                                                    <h2 style={{ fontWeight: '600', fontSize: '12px', color: '#808080' }}>{data.acf.penulis}</h2>
+                                                    <div style={{ fontSize: '12px', height: '50px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
+                                                    {data.acf.tag.map(item => {
+                                                        return (
+                                                            <Fragment key={item}>
+                                                                <Link to={`/tags/${item}`} style={{ textDecoration: 'none' }}><button style={{ width: '70px', height: '25px', backgroundColor: '#EC9B3B', fontSize: '9px', color: 'white', textTransform: 'uppercase', fontWeight: '600', border: 'none', borderRadius: '3px', cursor: 'pointer', marginRight: '5px' }}>{item}</button></Link>
+                                                            </Fragment>
+                                                        )
+                                                    })}
+                                                </Grid>
+                                                <hr style={{ height: '2px', width: '100%', border: 'none', backgroundColor: 'grey' }} />
+                                            </Fragment>
+                                        )
+
+                                    })}
                                 </Fragment>
-                                )
-                            })}
-                            </Fragment>
-            ) : (
-                    <div style={{ width: '100%', height: '500px', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '1000000' }}>
-                        <CircularProgress />
-                    </div>
-                )}
+                            ) : (
+                                    <div style={{ width: '100%', height: '500px', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '1000000' }}>
+                                        <CircularProgress />
+                                    </div>
+                                )}
 
                             <button style={{
                                 width: '160px',

@@ -1,6 +1,7 @@
 import React, { Fragment, useContext } from 'react';
 import { Grid, Box, CircularProgress } from '@material-ui/core';
 import { BeritaContext } from '../../Store/BeritaContext';
+import { Link } from 'react-router-dom'
 
 const Terbaru = () => {
     const { berita } = useContext(BeritaContext)
@@ -9,8 +10,8 @@ const Terbaru = () => {
             <Grid container spacing={3}>
                 <Grid item xs={12} sm={7}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <h2 style={{ marginRight: '15px', fontSize: '24px', letterSpacing: '0.25em', fontWeight: 'bold' }}>TERBARU</h2>
-                        <div style={{ width: '100%', height: '5px', backgroundColor: '#333333' }}></div>
+                        <h2 style={{ marginRight: '15px', fontSize: '24px', letterSpacing: '0.25em', fontWeight: 'bold', color: '#293462' }}>TERBARU</h2>
+                        <div style={{ width: '100%', height: '5px', backgroundColor: '#293462' }}></div>
                     </div>
                     {berita.length ? (
                         <Fragment>
@@ -19,17 +20,23 @@ const Terbaru = () => {
                                     return (
                                         <Fragment key={data.id}>
                                             <Grid item xs={12} sm={12} md={5} lg={5} xl={5}>
-                                                <Box style={{ backgroundColor: 'grey', height: '145px', width: '100%', borderRadius: '6px' }}>
+                                                <Box className="boxMobile" style={{ backgroundColor: 'grey', height: '145px', width: '100%', borderRadius: '6px' }}>
                                                     <img src={data.acf.gambar} alt={data.title.rendered} style={{ objectFit: 'cover', backgroundColor: 'grey', height: '145px', width: '100%', borderRadius: '6px' }} />
                                                 </Box>
                                             </Grid>
                                             <Grid item xs={12} sm={12} md={7} lg={7} xl={7}>
-                                                <h2 style={{ marginTop: '10px', fontWeight: '600', fontSize: '12px', fontStyle: 'normal' }}>{data.title.rendered}</h2>
-                                                <h2 style={{ fontWeight: '600', fontSize: '9px', color: '#808080' }}>{data.acf.penulis}</h2>
-                                                <div style={{ fontSize: '11px', height: '70px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
+                                                <Link to={`/berita/${data.id}`} style={{ textDecoration: 'none' }}>
+                                                    <h2 style={{ marginTop: '10px', marginBottom: '10px', fontWeight: '600', fontSize: '18px', fontStyle: 'normal', color: '#293462' }}>{data.title.rendered}</h2>
+                                                </Link>
+                                                <h2 style={{ fontWeight: '600', fontSize: '12px', color: '#808080' }}>{data.acf.penulis}</h2>
+                                                <div>
+                                                    <p style={{ fontSize: '12px', height: '50px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
+                                                </div>
                                                 {data.acf.tag.map(item => {
                                                     return (
-                                                        <button key={item} style={{ width: '62px', height: '17px', backgroundColor: 'grey', fontSize: '7px', border: 'none', borderRadius: '3px', cursor: 'pointer', marginRight: '5px' }}>{item}</button>
+                                                        <Fragment key={item}>
+                                                        <Link to={`/tags/${item}`} style={{ textDecoration: 'none' }}><button style={{ width: '70px', height: '25px', backgroundColor: '#EC9B3B', fontSize: '9px', color: 'white', textTransform: 'uppercase', fontWeight: '600', border: 'none', borderRadius: '3px', cursor: 'pointer', marginRight: '5px' }}>{item}</button></Link>
+                                                        </Fragment>
                                                     )
                                                 })}
                                             </Grid>

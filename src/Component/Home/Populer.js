@@ -9,8 +9,8 @@ const Populer = () => {
     return (
         <Fragment>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <h2 style={{ marginRight: '15px', fontSize: '24px', letterSpacing: '0.25em', fontWeight: 'bold' }}>POPULER</h2>
-                <div style={{ width: '100%', height: '5px', backgroundColor: '#333333' }}></div>
+                <h2 style={{ marginRight: '15px', fontSize: '24px', letterSpacing: '0.25em', fontWeight: 'bold', color:'#293462' }}>POPULER</h2>
+                <div style={{ width: '100%', height: '5px', backgroundColor: '#293462' }}></div>
             </div>
             {berita.length ? (
                 <Fragment>
@@ -23,7 +23,7 @@ const Populer = () => {
                                             <img src={data.acf.gambar} alt={data.title.rendered} style={{ height: '215px', width: '100%', borderRadius: '6px', objectFit: 'cover' }} />
                                         </Box>
                                         <Link to={`/berita/${data.id}`} style={{ textDecoration: 'none', color: 'black' }}>
-                                            <h2 style={{ marginTop: '10px', fontWeight: '600', fontSize: '18px', fontStyle: 'normal' }}>{data.title.rendered}</h2>
+                                            <h2 style={{ marginTop: '10px', fontWeight: '600', fontSize: '18px', fontStyle: 'normal', color:'#293462' }}>{data.title.rendered}</h2>
                                         </Link>
                                         <h2 style={{ fontWeight: '600', fontSize: '12px', color: '#808080' }}>{data.acf.penulis}</h2>
                                         <div style={{ height: '100px' }}>
@@ -31,7 +31,9 @@ const Populer = () => {
                                         </div>
                                         {data.acf.tag.map(item=>{
                                             return (
-                                                <button key={item} style={{ width: '62px', height: '17px', backgroundColor: 'grey', fontSize: '7px', border: 'none', borderRadius: '3px', cursor: 'pointer', marginRight:'5px' }}>{item}</button>
+                                                <Fragment key={item}>
+                                                <Link to={`/tags/${item}`} style={{ textDecoration: 'none' }}><button style={{ width: '70px', height: '25px', backgroundColor: '#EC9B3B', fontSize: '9px', color:'white', textTransform:'uppercase', fontWeight:'600', border: 'none', borderRadius: '3px', cursor: 'pointer', marginRight:'5px' }}>{item}</button></Link>
+                                                </Fragment>
                                             )
                                         })}
                                     </Grid>
