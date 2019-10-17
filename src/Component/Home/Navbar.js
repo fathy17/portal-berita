@@ -3,6 +3,8 @@ import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { useScrollTrigger, Slide, Drawer, makeStyles } from '@material-ui/core';
 import Navigation from './Navigation';
+import Logo from '../Assets/logo-0.png'
+import Search from './Search';
 
 function HideOnScroll(props) {
     const { children } = props;
@@ -37,14 +39,18 @@ const Navbar = (props) => {
 
     return (
         <Fragment>
-            <Drawer anchor="top" open={open} classes={{ paper: styles.paper }}>
+            <Drawer anchor="top" open={open} classes={{ paper: styles.paper }} >
                 <div>
-                    <div style={{width:'100%', height:'100%', textAlign:'center', margin:'30px 0'}} onClick={toogleDrawer}>
-                        <Link to="/tags/Sosial" style={{ textDecoration: 'none' , color:'white'}}><h3>SOSIAL</h3></Link>
-                        <Link to="/tags/Politik" style={{ textDecoration: 'none' , color:'white'}}><h3>POLITIK</h3></Link>
-                        <Link to="/tags/Kriminal" style={{ textDecoration: 'none' , color:'white'}}><h3>KRIMINAL</h3></Link>
-                        <Link to="/tags/olahraga" style={{ textDecoration: 'none' , color:'white'}}><h3>OLAHRAGA</h3></Link>
-                        <Link to="/tags/Daerah" style={{ textDecoration: 'none' , color:'white'}}><h3>DAERAH</h3></Link>
+                    <div style={{ width: '100%', height: '100%', textAlign: 'center', margin: '30px 0' }}>
+                        <div style={{display:'flex', width:'100%', justifyContent:'center', zIndex:'100'}} onClick={() => setOpen(true)}>
+                            <Search />
+                        </div>
+
+                        <Link to="/tags/Sosial" style={{ textDecoration: 'none', color: 'white' }} onClick={toogleDrawer}><h3>SOSIAL</h3></Link>
+                        <Link to="/tags/Politik" style={{ textDecoration: 'none', color: 'white' }} onClick={toogleDrawer}><h3>POLITIK</h3></Link>
+                        <Link to="/tags/Kriminal" style={{ textDecoration: 'none', color: 'white' }} onClick={toogleDrawer}><h3>KRIMINAL</h3></Link>
+                        <Link to="/tags/olahraga" style={{ textDecoration: 'none', color: 'white' }} onClick={toogleDrawer}><h3>OLAHRAGA</h3></Link>
+                        <Link to="/tags/Daerah" style={{ textDecoration: 'none', color: 'white' }} onClick={toogleDrawer}><h3>DAERAH</h3></Link>
                     </div>
                 </div>
             </Drawer>
@@ -54,7 +60,12 @@ const Navbar = (props) => {
                         <FaBars style={{ color: 'white' }} />
                     </div>
                     <div className="logo">
-                        <Link to='/' style={{ textDecoration: 'none' }} onClick={()=>setOpen(false)}><h2>eksposesulsel</h2></Link>
+                        <Link to='/' style={{ textDecoration: 'none' }} onClick={() => setOpen(false)}>
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <img src={Logo} alt="Logo" style={{ height: '31px', width: '49px', marginRight: '7px' }} />
+                                <h2 style={{ width: '50px', fontSize: '14px', lineHeight: '17px' }}>EKSPOSE SULSEL</h2>
+                            </div>
+                        </Link>
                     </div>
                     <Navigation />
                 </div>

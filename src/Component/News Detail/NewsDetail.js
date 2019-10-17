@@ -16,14 +16,17 @@ const NewsDetail = ({ beritaDetail }) => {
             .catch(err => console.log(err))
     }, [beritaDetail])
 
+    console.log(detail)
+    
     useEffect(() => {
         window.scrollTo(0, 0)
     },[]);
 
+
     if (detail.length) {
         return (
             <Fragment>
-                <div style={{ marginTop: '80px' }}>
+                <div style={{ marginTop: '80px' }} >
                     <Grid container >
                         <Grid item xs={12} sm={12} md={8} style={{ paddingRight: '150px' }} className="gridMobile">
                             <img src={detail[0].acf.gambar} alt="anjing" style={{
@@ -32,7 +35,7 @@ const NewsDetail = ({ beritaDetail }) => {
                                 backgroundSize: 'cover',
                                 backgroundRepeat: 'no-repeat', backgroundColor: 'grey', width: '100%', height: '380px'
                             }} />
-                            <h1 style={{ fontSize: '24px', fontWeight: 'bold', lineHeight: '29px' }}>{detail[0].title.rendered}</h1>
+                            <h1 style={{ fontSize: '30px', fontWeight: 'bold', lineHeight: '37px', color:'#293462' }}>{detail[0].title.rendered}</h1>
                             <h5 style={{ textTransform: 'uppercase', fontSize: '10px', fontWeight: '600', color: '#808080' }}>{detail[0].acf.penulis} - <Moment locale="id" format="Do MMMM YYYY">{detail[0].date}</Moment></h5>
                             {detail[0].acf.tag.map(item => {
                                 return (
@@ -61,7 +64,7 @@ const NewsDetail = ({ beritaDetail }) => {
                                         <Box style={{ backgroundColor: 'grey', height: '240px', borderRadius: '6px' }}>
                                         <img src={data.acf.gambar} alt={data.title.rendered} style={{ height: '240px', width: '100%', borderRadius: '6px', objectFit: 'cover' }} />
                                         </Box>
-                                        <Link to={`/berita/${data.id}`} style={{ textDecoration: 'none' }}><h3 style={{ textTransform: 'uppercase', fontWeight: '600', fontSize: '14px', lineHeight:'17px' }}>{data.title.rendered}</h3></Link>
+                                        <Link to={`/berita/${data.id}`} style={{ textDecoration: 'none' }}><h3 style={{ textTransform: 'uppercase', fontWeight: '600', fontSize: '14px', lineHeight:'17px', color:'#293462' }}>{data.title.rendered}</h3></Link>
                                         <hr style={{ height: '2px', width: '100%', border: 'none', backgroundColor: 'grey' }} />
                                     </div>
                                 )

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Toolbar } from '@material-ui/core';
 import { Link } from 'react-router-dom'
+import Search from './Search';
+import BeritaContextProvider from '../../Store/BeritaContext';
 
 const Navigation = () => {
     return (
@@ -21,10 +23,9 @@ const Navigation = () => {
                 <Link to='/tags/Daerah' style={{ textDecoration: 'none' }}>
                     <h4 style={{ marginRight: '20px', fontSize: '12px', color: 'white' }}>DAERAH</h4>
                 </Link>
-                <form >
-                    <input type="text" style={{ height: '17px', fontSize: '12px' }}></input>
-                    <button type="submit" style={{ fontFamily: 'Montserrat', fontSize: '12px', fontWeight: 'bold', height: '23px' }}>CARI</button>
-                </form>
+                <BeritaContextProvider>
+                    <Search />
+                </BeritaContextProvider>
             </Toolbar>
         </div>
     );

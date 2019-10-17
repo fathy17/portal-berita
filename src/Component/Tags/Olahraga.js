@@ -25,7 +25,7 @@ const Olahraga = () => {
                                     {data.map(data => {
                                         return (
                                             <Fragment key={data.id}>
-                                                <Grid item xs={12} sm={12} md={5} lg={5} xl={5}>
+                                                <Grid item xs={12} sm={12} md={5} lg={5} xl={5} className="gMobile">
                                                     <Box className="boxMobile" style={{ backgroundColor: 'grey', height: '145px', width: '100%', borderRadius: '6px' }}>
                                                         <img src={data.acf.gambar} alt={data.title.rendered} style={{ objectFit: 'cover', backgroundColor: 'grey', height: '145px', width: '100%', borderRadius: '6px' }} />
                                                     </Box>
@@ -39,7 +39,7 @@ const Olahraga = () => {
                                                     {data.acf.tag.map(item => {
                                                         return (
                                                             <Fragment key={item}>
-                                                                <Link to={`/tags/${item}`} style={{ textDecoration: 'none' }}><button style={{ width: '70px', height: '25px', backgroundColor: '#EC9B3B', fontSize: '9px', color: 'white', textTransform: 'uppercase', fontWeight: '600', border: 'none', borderRadius: '3px', cursor: 'pointer', marginRight: '5px' }}>{item}</button></Link>
+                                                                <Link to={`/tags/${item}`} style={{ textDecoration: 'none' }}><button style={{ width: '70px', marginTop:'5px', height: '25px', backgroundColor: '#EC9B3B', fontSize: '9px', color: 'white', textTransform: 'uppercase', fontWeight: '600', border: 'none', borderRadius: '3px', cursor: 'pointer', marginRight: '5px' }}>{item}</button></Link>
                                                             </Fragment>
                                                         )
                                                     })}
