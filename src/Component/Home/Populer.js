@@ -27,7 +27,7 @@ const Populer = () => {
                                             <h2 style={{ marginTop: '10px', fontWeight: '600', fontSize: '18px', fontStyle: 'normal', color:'#293462' }}>{data.title.rendered}</h2>
                                         </Link>
                                         <h2 style={{ fontWeight: '600', fontSize: '12px', color: '#808080' }}>{data.acf.penulis} - <Moment locale="id" format="Do MMMM YYYY">{data.date}</Moment></h2>
-                                        <div style={{ height: '100px' }}>
+                                        <div style={{ }}>
                                             <div style={{ fontFamily: 'Raleway', fontSize: '14px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
                                         </div>
                                         {data.acf.tag.map(item=>{

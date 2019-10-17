@@ -3,7 +3,7 @@ import { FaBars } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { useScrollTrigger, Slide, Drawer, makeStyles } from '@material-ui/core';
 import Navigation from './Navigation';
-import Logo from '../Assets/logo-0.png'
+import Logo from '../Assets/es-logo-web.png'
 import Search from './Search';
 
 function HideOnScroll(props) {
@@ -62,8 +62,8 @@ const Navbar = (props) => {
                     <div className="logo">
                         <Link to='/' style={{ textDecoration: 'none' }} onClick={() => setOpen(false)}>
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                <img src={Logo} alt="Logo" style={{ height: '31px', width: '49px', marginRight: '7px' }} />
-                                <h2 style={{ width: '50px', fontSize: '14px', lineHeight: '17px' }}>EKSPOSE SULSEL</h2>
+                                <img src={Logo} alt="Logo" style={{ height: '40px', width: '37px', marginRight: '10px' }} />
+                                <h2 style={{ fontSize: '24px', lineHeight: '17px' }}>EKSPOSE SULSEL</h2>
                             </div>
                         </Link>
                     </div>

@@ -1,5 +1,4 @@
-import React, { Fragment, useState, useEffect, Component } from 'react';
-import axios from 'axios';
+import React, { Fragment, Component } from 'react';
 import { withRouter } from "react-router";
 import { FaSearch } from "react-icons/fa"
 

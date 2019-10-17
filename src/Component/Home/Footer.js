@@ -11,16 +11,13 @@ const Footer = () => {
             backgroundColor: '#293462',
             color: 'white',
             display: 'flex',
-            height: '100px',
-            justifyContent: 'center',
-            alignItems: 'center'
+            height: '40px',
         }}>
-            <div style={{textAlign:'center'}}>
-                <h1 style={{fontSize:'24px', fontWeight:'bold'}}>eksposesulsel</h1>
-                <p style={{fontSize:'12px', fontWeight:'bold'}}>2019 eksposesulsel.com - ALL RIGHT RESERVED</p>
+            <div style={{ width:'100%', margin:'0 10%'}}>
+                <p style={{fontSize:'12px', fontWeight:'600'}}>&copy; 2019 eksposesulsel.com</p>
             </div>
         </div>
-    );
+    )
 }
 
-export default Footer;
+export default Footer

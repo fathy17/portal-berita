@@ -12,7 +12,7 @@ const SearchPage = (props) => {
         Axios.get(`/wp-json/wp/v2/berita?search=${props.match.params.id}`)
             .then(res => setItem(res.data))
             .catch(err => console.log(err))
-    }, [])
+    }, [props.match.params.id])
 
     console.log(item)
     if (item.length) {
@@ -20,8 +20,8 @@ const SearchPage = (props) => {
             <Fragment>
                 <Grid container spacing={3} style={{marginTop:'50px'}}>
                     <Grid item xs={12} sm={7}>
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <h2 style={{ marginRight: '15px', fontSize: '24px', letterSpacing: '0.25em', fontWeight: 'bold', color: '#293462' }}>HASIL PENCARIAN "{props.match.params.id}"</h2>
+                        <div className="textMobile" style={{ display: 'flex', alignItems: 'center' }}>
+                            <h2 style={{ margin: '15px', fontSize: '24px', letterSpacing: '0.1em', fontWeight: 'bold', color: '#293462' }}>HASIL PENCARIAN <h3 style={{fontSize:'24px', color:'#EC9B3B', letterSpacing:'0'}}>"{props.match.params.id}"</h3></h2>
                         </div>
                         {item.length ? (
                             <Fragment>
@@ -71,7 +71,7 @@ const SearchPage = (props) => {
                                 </div>
                             </Fragment>
                         ) : (
-                                <div style={{ width: '100%', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '1000000' }}>
+                                <div style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '1000000' }}>
                                     <CircularProgress />
                                 </div>
                             )}
@@ -88,7 +88,7 @@ const SearchPage = (props) => {
             </Fragment>
         )
     } return (
-        <div style={{ width: '100%', height: '300px', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '1000000' }}>
+        <div style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '1000000' }}>
             <CircularProgress />
         </div>
     )

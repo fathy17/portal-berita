@@ -5,7 +5,6 @@ export const BeritaContext = createContext()
 
 const BeritaContextProvider = (props) => {
     const [berita, setBerita] = useState([])
-    const [query, setQuery] = useState()
     
 
     useEffect(() => {
@@ -16,7 +15,7 @@ const BeritaContextProvider = (props) => {
 
 
     return ( 
-        <BeritaContext.Provider value={{berita, setQuery}}>
+        <BeritaContext.Provider value={{berita}}>
             {props.children}
         </BeritaContext.Provider>
      );
