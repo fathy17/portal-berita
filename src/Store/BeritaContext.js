@@ -5,10 +5,9 @@ export const BeritaContext = createContext()
 
 const BeritaContextProvider = (props) => {
     const [berita, setBerita] = useState([])
-    
 
     useEffect(() => {
-        Axios.get('/wp-json/wp/v2/berita')
+        Axios.get('https://admin.eksposesulsel.com/wp-json/wp/v2/berita')
             .then(res => setBerita(res.data))
             .catch(err => console.log(err))
     }, [])

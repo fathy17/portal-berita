@@ -7,11 +7,11 @@ const Test = ({data}) => {
     return ( 
         <Grid item xs={12} sm={6} md={6} lg={6} xl={6} >
                                 <Link to={`/berita/${data.id}`} >
-                                    <Box style={{
+                                    <Box className="hover" style={{
                                         position: 'relative',
-                                        backgroundColor: 'grey', height: '320px', borderRadius: '6px',
+                                        height: '320px', borderRadius: '6px',
                                         objectFit: 'cover',
-                                        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))',
+                                        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))',
                                         backgroundPosition: 'center',
                                         backgroundSize: 'cover',
                                         backgroundRepeat: 'no-repeat',
@@ -21,12 +21,10 @@ const Test = ({data}) => {
                                         backgroundColor: 'grey', height: '320px', borderRadius: '6px',
                                         width:'100%',
                                         objectFit: 'cover',
-                                        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))',
                                         backgroundPosition: 'center',
                                         backgroundSize: 'cover',
                                         backgroundRepeat: 'no-repeat',
-                                        zIndex:'2',
-                                        opacity:'0.2'
+                                        zIndex:'-1'
                                     }}/>
                                         <div style={{
                                             textAlign: 'center',
@@ -35,10 +33,10 @@ const Test = ({data}) => {
                                             left: '50%',
                                             transform: 'translate(-50%, -50%)',
                                             color: 'white',
-                                            zIndex:'3'
+                                            width:'80%'
                                         }}>
-                                            <h2 style={{ fontWeight: 'bold', textTransform: 'uppercase', fontSize: '18px', lineHeight:'22px' }} >{data.title.rendered}</h2>
-                                            <h2 style={{ fontWeight: 'bold', textTransform: 'uppercase', fontSize: '10px' }}>{data.acf.penulis} - <Moment locale="id" format="Do MMMM YYYY">{data.date}</Moment></h2>
+                                            <h2 style={{ fontWeight: 'bold', fontSize: '18px', lineHeight:'22px' }} >{data.title.rendered}</h2>
+                                            <h2 style={{ fontWeight: '500', textTransform: 'uppercase', fontSize: '10px' }}>{data.acf.penulis} - <Moment locale="id" format="Do MMMM YYYY">{data.date}</Moment></h2>
                                         </div>
                                     </Box>
                                 </Link>

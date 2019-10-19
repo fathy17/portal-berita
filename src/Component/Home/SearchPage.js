@@ -7,21 +7,19 @@ import Moment from 'react-moment'
 const SearchPage = (props) => {
     const [item, setItem] = useState([])
 
-    console.log(props)
     useEffect(() => {
-        Axios.get(`/wp-json/wp/v2/berita?search=${props.match.params.id}`)
+        Axios.get(`https://admin.eksposesulsel.com/wp-json/wp/v2/berita?search=${props.match.params.id}`)
             .then(res => setItem(res.data))
             .catch(err => console.log(err))
     }, [props.match.params.id])
 
-    console.log(item)
     if (item.length) {
         return (
             <Fragment>
                 <Grid container spacing={3} style={{marginTop:'50px'}}>
                     <Grid item xs={12} sm={7}>
                         <div className="textMobile" style={{ display: 'flex', alignItems: 'center' }}>
-                            <h2 style={{ margin: '15px', fontSize: '24px', letterSpacing: '0.1em', fontWeight: 'bold', color: '#293462' }}>HASIL PENCARIAN <h3 style={{fontSize:'24px', color:'#EC9B3B', letterSpacing:'0'}}>"{props.match.params.id}"</h3></h2>
+                            <h2 style={{marginBottom:'0px', fontSize: '24px', letterSpacing: '0.1em', fontWeight: 'bold', color: '#293462', lineHeight:'10px' }}>HASIL PENCARIAN <p style={{fontSize:'24px', color:'#EC9B3B', letterSpacing:'0'}}>"{props.match.params.id}"</p></h2>
                         </div>
                         {item.length ? (
                             <Fragment>
@@ -55,20 +53,6 @@ const SearchPage = (props) => {
                                         )
                                     })}
                                 </Grid>
-                                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '20px' }}>
-                                    <button style={{
-                                        width: '160px',
-                                        height: '40px',
-                                        fontSize: '18px',
-                                        letterSpacing: '0.1em',
-                                        fontWeight: 'bold',
-                                        fontFamily: 'Montserrat',
-                                        background: 'none',
-                                        border: 'solid 1px black',
-                                        margin: '10px',
-                                        cursor: 'pointer',
-                                    }}>LOAD MORE</button>
-                                </div>
                             </Fragment>
                         ) : (
                                 <div style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '1000000' }}>

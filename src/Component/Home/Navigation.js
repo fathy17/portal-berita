@@ -2,7 +2,6 @@ import React from 'react';
 import { Toolbar } from '@material-ui/core';
 import { Link } from 'react-router-dom'
 import Search from './Search';
-import BeritaContextProvider from '../../Store/BeritaContext';
 
 const Navigation = () => {
     return (
@@ -23,9 +22,7 @@ const Navigation = () => {
                 <Link to='/tags/Daerah' style={{ textDecoration: 'none' }}>
                     <h4 style={{ marginRight: '20px', fontSize: '12px', color: 'white' }}>DAERAH</h4>
                 </Link>
-                <BeritaContextProvider>
-                    <Search />
-                </BeritaContextProvider>
+                <Search />
             </Toolbar>
         </div>
     );

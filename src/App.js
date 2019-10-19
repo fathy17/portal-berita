@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import Home from './Component/Home';
 import NewsDetails from './Component/NewsDetails';
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Navbar from './Component/Home/Navbar'
 import Footer from './Component/Home/Footer'
 import BeritaContextProvider from './Store/BeritaContext';
@@ -21,14 +21,16 @@ function App() {
         </BeritaContextProvider>
         <div style={{ margin: '0 10%' }}>
           <BeritaContextProvider>
-            <Route exact path='/' component={Home} />
-            <Route path='/berita/:id' component={NewsDetails} />
-            <Route path='/tags/olahraga' component={Olahraga} />
-            <Route path='/tags/Daerah' component={Daerah} />
-            <Route path='/tags/Kriminal' component={Kriminal} />
-            <Route path='/tags/Politik' component={Politik} />
-            <Route path='/tags/Sosial' component={Sosial} />
-            <Route path='/search/:id' component={SearchPage} />
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/berita/:id' component={NewsDetails} />
+              <Route path='/tags/olahraga' component={Olahraga} />
+              <Route path='/tags/Daerah' component={Daerah} />
+              <Route path='/tags/Kriminal' component={Kriminal} />
+              <Route path='/tags/Politik' component={Politik} />
+              <Route path='/tags/Sosial' component={Sosial} />
+              <Route exact path='/search/:id' component={SearchPage} />
+            </Switch>
           </BeritaContextProvider>
         </div>
         <br />
