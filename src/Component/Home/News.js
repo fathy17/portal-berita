@@ -14,6 +14,7 @@ const News = () => {
                     <Grid container spacing={3}>
                         {berita.slice(0, 2).map(data => {
                             return (
+                                
                                     <Test key={data.id} data={data}/>
                                 )
                         })}

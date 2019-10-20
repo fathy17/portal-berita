@@ -5,33 +5,52 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Navbar from './Component/Home/Navbar'
 import Footer from './Component/Home/Footer'
 import BeritaContextProvider from './Store/BeritaContext';
-import Olahraga from './Component/Tags/Olahraga'
 import Daerah from './Component/Tags/Daerah';
-import Sosial from './Component/Tags/Sosial';
-import Kriminal from './Component/Tags/Kriminal';
+import Ekobis from './Component/Tags/Ekobis';
+import HukumKriminal from './Component/Tags/HukumKriminal';
+import Nasional from './Component/Tags/Nasional';
+import Peristiwa from './Component/Tags/Peristiwa';
 import Politik from './Component/Tags/Politik';
+import Ragam from './Component/Tags/Ragam';
+import Sport from './Component/Tags/Sport';
+import Teknologi from './Component/Tags/Teknologi';
+import { Helmet } from "react-helmet";
 import SearchPage from './Component/Home/SearchPage';
+import TagsContextProvider from './Store/TagsContext';
 
 function App() {
   return (
     <Fragment>
+    <Helmet>
+                <title>Ekspose Sulsel</title>
+                <link rel="canonical" href="https://eksposesulsel.com/" />
+                <meta name="description" content="Portal Berita Sulawesi Selatan" />
+                <meta name="keywords" content="Portal Berita Sulawesi Selatan" />
+            </Helmet>
       <BrowserRouter>
         <BeritaContextProvider>
           <Navbar />
         </BeritaContextProvider>
-        <div style={{ margin: '0 10%' }}>
-          <BeritaContextProvider>
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/berita/:id' component={NewsDetails} />
-              <Route path='/tags/olahraga' component={Olahraga} />
-              <Route path='/tags/Daerah' component={Daerah} />
-              <Route path='/tags/Kriminal' component={Kriminal} />
-              <Route path='/tags/Politik' component={Politik} />
-              <Route path='/tags/Sosial' component={Sosial} />
-              <Route exact path='/search/:id' component={SearchPage} />
-            </Switch>
-          </BeritaContextProvider>
+        <div className="margin" style={{ margin: '0 10%' }}>
+          <TagsContextProvider>
+            <BeritaContextProvider>
+              <Switch>
+                <Route exact path='/' component={Home} />
+                <Route path='/berita/:id' component={NewsDetails} />
+                <Route path='/tags/Daerah' component={Daerah} />
+                <Route path='/tags/Ekobis' component={Ekobis} />
+                <Route path='/tags/HukumKriminal' component={HukumKriminal} />
+                <Route path='/tags/Hukum Kriminal' component={HukumKriminal} />
+                <Route path='/tags/Nasional' component={Nasional} />
+                <Route path='/tags/Peristiwa' component={Peristiwa} />
+                <Route path='/tags/Politik' component={Politik} />
+                <Route path='/tags/Ragam' component={Ragam} />
+                <Route path='/tags/Sport' component={Sport} />
+                <Route path='/tags/Teknologi' component={Teknologi} />
+                <Route exact path='/search/:id' component={SearchPage} />
+              </Switch>
+            </BeritaContextProvider>
+          </TagsContextProvider>
         </div>
         <br />
         <Footer />

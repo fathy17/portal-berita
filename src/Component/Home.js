@@ -4,6 +4,7 @@ import Populer from './Home/Populer'
 import Terbaru from './Home/Terbaru'
 import BeritaContextProvider, { BeritaContext } from '../Store/BeritaContext';
 import { CircularProgress } from '@material-ui/core';
+import { Helmet } from "react-helmet";
 
 
 const Home = () => {
@@ -14,6 +15,12 @@ const Home = () => {
 
     return (
         <BeritaContextProvider>
+            <Helmet>
+                <title>Ekspose Sulsel</title>
+                <link rel="canonical" href="https://eksposesulsel.com/" />
+                <meta name="description" content="Portal Berita Sulawesi Selatan" />
+                <meta name="keywords" content="Portal Berita Sulawesi Selatan" />
+            </Helmet>
             {berita.length ? (
                 <Fragment>
                     <News />

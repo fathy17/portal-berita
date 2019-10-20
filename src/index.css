@@ -1,6 +1,23 @@
+@media
+only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5){
+
+  html,
+  body{
+    width:100%;
+    overflow-x:hidden;
+  }
+
+}
+
 body {
   margin: 0;
   padding: 0;
+  top: 0;
+  right: 0;
+  overflow-x: hidden;
   width : 100%;
   height: 100%;
   font-family: -apple-system, BlinkMacSystemFont,"Montserrat", "Segoe UI", "Roboto", "Oxygen",
@@ -28,7 +45,8 @@ code {
   margin: 0;
   position: fixed;
   top: 0;
-  z-index: 10000;
+  right: 0;
+  z-index: 9;
 }
 
 .logo {
@@ -90,8 +108,7 @@ code {
 
 
 /* Media Screen */
-
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1024px) {
   .navigation {
     display: none;
   }
@@ -113,7 +130,91 @@ code {
   }
 
   .logo {
-    margin-left: 0%;
+    margin-left: 0;
+  }
+
+  .boxMobile {
+    height:215px !important ;
+  }
+  
+  .boxMobile img {
+    height:215px !important ;
+  }
+
+  .logoMobile img {
+    display: none
+  }
+
+  .logoMobile h2 {
+    font-size: 20px !important;
+  }
+  
+  .logo-off {
+    display: none;
+  }
+
+  .logoMobile.nav img {
+    display: block;
+    margin-right: 10px !important;
+    height: 30px !important;
+    width: auto !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .detailGambar {
+    height: 200px !important;
+  }
+
+  .gridMobile h1 {
+    font-size: 24px !important;
+    line-height: 30px !important;
+  }
+
+  .hover {
+    height: 215px !important;
+  }
+
+  .hover img {
+    height: 215px !important;
+  }
+
+  .margin {
+    margin: 0 25px !important;
+  }
+
+  .gMobile {
+    padding: 12px 12px 0 12px !important;
+  }
+
+  .iframe {
+    text-align: center !important;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .navigation {
+    display: none;
+  }
+
+  .margin-media {
+    margin-top: 10px;
+  }
+
+  .ham-icon {
+    display: flex;
+    flex-grow: 1;
+    margin-left: 30px;
+    cursor: pointer;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo {
+    margin-left: 0;
   }
 
   .gridMobile {
@@ -131,30 +232,20 @@ code {
   .logoMobile img {
     display: none
   }
-}
 
-@media only screen and (max-width: 1040px) {
-  .navigation {
+  .logoMobile h2 {
+    font-size: 20px !important;
+  }
+  
+  .logo-off {
     display: none;
   }
 
-  .margin-media {
-    margin-top: 10px;
-  }
-
-  .ham-icon {
-    display: flex;
-    flex-grow: 1;
-    margin-left: 30px;
-    cursor: pointer;
-  }
-
-  .container {
-    display: flex;
-    justify-content: center;
-  }
-
-  .logo {
-    margin-left: 0%;
+  .logoMobile.nav img {
+    display: block;
+    margin-right: 10px !important;
+    height: 30px !important;
+    width: auto !important;
   }
 }
+

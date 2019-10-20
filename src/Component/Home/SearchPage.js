@@ -18,7 +18,7 @@ const SearchPage = (props) => {
             <Fragment>
                 <Grid container spacing={3} style={{marginTop:'50px'}}>
                     <Grid item xs={12} sm={7}>
-                        <div className="textMobile" style={{ display: 'flex', alignItems: 'center' }}>
+                        <div className="textMobile" style={{marginTop: '10px', display: 'flex', alignItems: 'center' }}>
                             <h2 style={{marginBottom:'0px', fontSize: '24px', letterSpacing: '0.1em', fontWeight: 'bold', color: '#293462', lineHeight:'10px' }}>HASIL PENCARIAN <p style={{fontSize:'24px', color:'#EC9B3B', letterSpacing:'0'}}>"{props.match.params.id}"</p></h2>
                         </div>
                         {item.length ? (
@@ -33,12 +33,12 @@ const SearchPage = (props) => {
                                                     </Box>
                                                 </Grid>
                                                 <Grid item xs={12} sm={12} md={7} lg={7} xl={7}>
-                                                    <Link to={`/berita/${data.id}`} style={{ textDecoration: 'none' }}>
+                                                    <Link to={`/berita/${data.slug}`} style={{ textDecoration: 'none' }}>
                                                         <h2 style={{ marginTop: '10px', marginBottom: '10px', fontWeight: '600', fontSize: '18px', fontStyle: 'normal', color: '#293462' }}>{data.title.rendered}</h2>
                                                     </Link>
-                                                    <h2 style={{ fontWeight: '600', fontSize: '12px', color: '#808080' }}>{data.acf.penulis} - <Moment locale="id" format="Do MMMM YYYY">{data.date}</Moment></h2>
+                                                    <h2 style={{ fontWeight: '600', fontSize: '12px', color: '#808080', textTransform: 'uppercase' }}>{data.acf.penulis} - <Moment locale="id" format="Do MMMM YYYY">{data.date}</Moment></h2>
                                                     <div>
-                                                        <p style={{ fontSize: '12px', height: '50px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
+                                                        <p style={{ fontFamily: 'Roboto', fontSize: '14px', height: '50px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
                                                     </div>
                                                     {data.acf.tag.map(item => {
                                                         return (
@@ -48,7 +48,7 @@ const SearchPage = (props) => {
                                                         )
                                                     })}
                                                 </Grid>
-                                                <hr style={{ height: '2px', width: '100%', border: 'none', backgroundColor: 'grey' }} />
+                                                <hr style={{ height: '1px', width: '100%', border: 'none', backgroundColor: '#C4C4C4' }} />
                                             </Fragment>
                                         )
                                     })}

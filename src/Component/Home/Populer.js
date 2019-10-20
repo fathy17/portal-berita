@@ -20,7 +20,7 @@ const Populer = () => {
                             {berita.slice(0, 3).map(data => {
                                 return (
                                     <Grid key={data.id} item xs={12} sm={4} md={4} lg={4} xl={4}>
-                                        <Link to={`/berita/${data.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                                        <Link to={`/berita/${data.slug}`} style={{ textDecoration: 'none', color: 'black' }}>
                                             <Box style={{ height: '215px', borderRadius: '6px', backgroundColor: 'grey' }}>
                                                 <img src={data.acf.gambar} alt={data.title.rendered} style={{ height: '215px', width: '100%', borderRadius: '6px', objectFit: 'cover' }} />
                                             </Box>
@@ -28,8 +28,9 @@ const Populer = () => {
                                         </Link>
                                         <h2 style={{ fontWeight: '500', fontSize: '12px', color: '#808080', textTransform: 'uppercase' }}>{data.acf.penulis} - <Moment locale="id" format="Do MMMM YYYY">{data.date}</Moment></h2>
                                         <div style={{}}>
-                                            <div style={{ fontFamily: 'Raleway', fontSize: '14px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
+                                            <div style={{ fontFamily: 'Roboto', fontSize: '14px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
                                         </div>
+                                        <div style={{display:'flex', alignItems:'center', flexWrap:'wrap'}}>
                                         {data.acf.tag.map(item => {
                                             return (
                                                 <Fragment key={item}>
@@ -37,6 +38,7 @@ const Populer = () => {
                                                 </Fragment>
                                             )
                                         })}
+                                        </div>
                                     </Grid>
                                 )
                             })}

@@ -1,14 +1,16 @@
 import React, { Fragment, useContext } from 'react';
 import { Grid, Box, CircularProgress } from '@material-ui/core';
-import { BeritaContext } from '../../Store/BeritaContext';
 import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
+import { TagsContext } from '../../Store/TagsContext';
 
 const Daerah = () => {
-    const { berita } = useContext(BeritaContext)
+    const { berita } = useContext(TagsContext)
     const tag = "Daerah"
     let data = berita.filter(item => item.acf.tag[0] === tag || item.acf.tag[1] === tag
-        || item.acf.tag[2] === tag || item.acf.tag[3] === tag || item.acf.tag[4] === tag)
+        || item.acf.tag[2] === tag || item.acf.tag[3] === tag || item.acf.tag[4] === tag
+        || item.acf.tag[5] === tag || item.acf.tag[6] === tag || item.acf.tag[7] === tag
+        || item.acf.tag[8] === tag)
 
     return (
         <Fragment>
@@ -16,7 +18,7 @@ const Daerah = () => {
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={12} md={7} lg={7} xl={7}>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '15px' }}>
-                            <h2 style={{ margin: '0 15px 0 0', fontSize: '24px', letterSpacing: '0.2em', fontWeight: 'bold', color: '#293462' }}>DAERAH</h2>
+                            <h2 style={{ margin: '0 15px 0 0', fontSize: '24px', letterSpacing: '0.1em', fontWeight: 'bold', color: '#293462' }}>DAERAH</h2>
                             <div style={{ width: '100%', height: '3px', backgroundColor: '#293462' }}></div>
                         </div>
                         <Grid container spacing={3}>
@@ -31,11 +33,12 @@ const Daerah = () => {
                                                     </Box>
                                                 </Grid>
                                                 <Grid item xs={12} sm={12} md={7} lg={7} xl={7}>
-                                                    <Link to={`/berita/${data.id}`} style={{ textDecoration: 'none' }}>
+                                                    <Link to={`/berita/${data.slug}`} style={{ textDecoration: 'none' }}>
                                                         <h2 style={{ marginTop: '10px', marginBottom: '10px', fontWeight: '600', fontSize: '18px', fontStyle: 'normal', color: '#293462' }}>{data.title.rendered}</h2>
                                                     </Link>
-                                                    <h2 style={{ fontWeight: '600', fontSize: '12px', color: '#808080' }}>{data.acf.penulis} - <Moment locale="id" format="Do MMMM YYYY">{data.date}</Moment></h2>
-                                                    <div style={{ fontSize: '12px', height: '50px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
+                                                    <h2 style={{ fontWeight: '600', fontSize: '12px', color: '#808080', textTransform: 'uppercase' }}>{data.acf.penulis} - <Moment locale="id" format="Do MMMM YYYY">{data.date}</Moment></h2>
+                                                    <div style={{ fontFamily: 'Roboto', fontSize: '14px', height: '50px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
+                                                    <div style={{display:'flex', alignItems:'center', flexWrap:'wrap'}}>
                                                     {data.acf.tag.map(item => {
                                                         return (
                                                             <Fragment key={item}>
@@ -43,8 +46,9 @@ const Daerah = () => {
                                                             </Fragment>
                                                         )
                                                     })}
+                                                    </div>
                                                 </Grid>
-                                                <hr style={{ height: '2px', width: '100%', border: 'none', backgroundColor: 'grey' }} />
+                                                <hr style={{ height: '1px', width: '100%', border: 'none', backgroundColor: '#C4C4C4' }} />
                                             </Fragment>
                                         )
 

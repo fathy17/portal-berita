@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { useScrollTrigger, Slide, makeStyles, SwipeableDrawer } from '@material-ui/core';
 import Navigation from './Navigation';
 import Logo from '../Assets/es-logo-web.png'
-import Search from './Search';
 
 function HideOnScroll(props) {
     const { children } = props;
@@ -24,11 +23,16 @@ const useStyles = makeStyles({
     paper: {
         background: '#293462',
         color: 'white',
-        top: '50px'
+        width:'70%'
     }
 });
 
 const Navbar = (props) => {
+    const [tags]=useState([
+        "Daerah", "Ekobis", "Hukum Kriminal", "Nasional", "Peristiwa", "Politik", "Ragam", "Sport", "Teknologi"
+    ])
+
+    const [logo, setLogo]=useState("logo")
 
     useEffect(()=>{
         setOpen(false)
@@ -37,32 +41,43 @@ const Navbar = (props) => {
     const [open, setOpen] = useState(false)
     const toogleDrawer = () => {
         setOpen(!open)
+        setLogo("logo-off")
     }
 
+    const onClose = () => {
+        setLogo("logo")
+        setOpen(!open)
+    }
     const styles = useStyles();
 
     return (
         <Fragment>
-            <SwipeableDrawer anchor="top" open={open} classes={{ paper: styles.paper }} onClose={toogleDrawer} onOpen={toogleDrawer}>
-                <div>
-                    <div style={{ width: '100%', height: '100%', textAlign: 'center', margin: '30px 0' }}>
-                        <div style={{display:'flex', width:'100%', justifyContent:'center', zIndex:'100'}} onClick={() => setOpen(true)}>
-                            <Search/>
+            <SwipeableDrawer style={{width:'100%'}} anchor="left" open={open} classes={{ paper: styles.paper }} onClose={onClose} onOpen={toogleDrawer}>
+                    <div style={{ width: '100%', height: '100%', margin: '20px 0 0 20px', zIndex:'11' }}>
+                        <div className="logo nav">
+                        <Link to='/' style={{ textDecoration: 'none' }} onClick={onClose}>
+                            <div className="logoMobile nav" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <img src={Logo} alt="Logo" style={{ height: '40px', width: '37px', marginRight: '15px' }} />
+                                <h2 style={{ fontSize: '24px', lineHeight: '17px' }}>EKSPOSE SULSEL</h2>
+                            </div>
+                        </Link>
                         </div>
-                        <Link to="/tags/Sosial" style={{ textDecoration: 'none', color: 'white' }} onClick={toogleDrawer}><h3>SOSIAL</h3></Link>
-                        <Link to="/tags/Politik" style={{ textDecoration: 'none', color: 'white' }} onClick={toogleDrawer}><h3>POLITIK</h3></Link>
-                        <Link to="/tags/Kriminal" style={{ textDecoration: 'none', color: 'white' }} onClick={toogleDrawer}><h3>KRIMINAL</h3></Link>
-                        <Link to="/tags/olahraga" style={{ textDecoration: 'none', color: 'white' }} onClick={toogleDrawer}><h3>OLAHRAGA</h3></Link>
-                        <Link to="/tags/Daerah" style={{ textDecoration: 'none', color: 'white' }} onClick={toogleDrawer}><h3>DAERAH</h3></Link>
+                        <div style={{marginTop:'45px', width:'100%'}}>
+                        <hr style={{marginRight:'40px'}}/>
+                        {tags.map(tag=>{
+                            return (
+                                <Link key={tag} to={`/tags/${tag}`} style={{ textTransform:'uppercase',textDecoration: 'none', color: 'white' }} onClick={onClose}><h3 style={{fontSize:'16px'}}>{tag}</h3></Link>
+                            )
+                        })}
+                        </div>
                     </div>
-                </div>
             </SwipeableDrawer>
             <HideOnScroll {...props}>
                 <div className="container">
                     <div className='ham-icon' onClick={toogleDrawer}>
                         <FaBars style={{ color: 'white' }} />
                     </div>
-                    <div className="logo">
+                    <div className={logo}>
                         <Link to='/' style={{ textDecoration: 'none' }} onClick={() => setOpen(false)}>
                             <div className="logoMobile" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                 <img src={Logo} alt="Logo" style={{ height: '40px', width: '37px', marginRight: '15px' }} />

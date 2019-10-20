@@ -3,18 +3,28 @@
   "name": "Ekspose Sulsel",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "es-logo-64px.png",
+      "sizes": "64x64",
+      "type": "image/png"
     },
     {
-      "src": "logo512.png",
+      "src": "es-logo-32px.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "es-logo-24px.png",
+      "sizes": "24x24",
+      "type": "image/png"
+    },
+    {
+      "src": "es-logo-512px.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/index.html",
+  "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#293462",
+  "background_color": "#293462"
 }
