@@ -21,17 +21,19 @@ const Home = () => {
                 <meta name="description" content="Portal Berita Sulawesi Selatan" />
                 <meta name="keywords" content="Portal Berita Sulawesi Selatan" />
             </Helmet>
-            {berita.length ? (
-                <Fragment>
-                    <News />
-                    <Populer />
-                    <Terbaru />
-                </Fragment>
-            ) : (
-                    <div style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '1000000' }}>
-                        <CircularProgress />
-                    </div>
-                )}
+            <div className="margin">
+                {berita.length ? (
+                    <Fragment>
+                        <News />
+                        <Populer />
+                        <Terbaru />
+                    </Fragment>
+                ) : (
+                        <div style={{ width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '1000000' }}>
+                            <CircularProgress />
+                        </div>
+                    )}
+            </div>
         </BeritaContextProvider>
     );
 }

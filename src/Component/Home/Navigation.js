@@ -1,10 +1,26 @@
-import React from 'react';
-import { Toolbar } from '@material-ui/core';
+import React, { useState } from 'react';
+import { Toolbar, Dialog } from '@material-ui/core';
 import { Link } from 'react-router-dom'
+import { MdSearch } from 'react-icons/md'
+import Search from './Search';
 
 const Navigation = () => {
+    const [open, setOpen] = useState(false)
+    const toogleOpen = () => {
+        setOpen(!open)
+    }
+
     return (
         <div className="navigation">
+            <Dialog
+            open={open}
+            onClose={toogleOpen}
+            fullwidth={true}
+            maxWidth="xl" >
+                <div style={{ overflow:'hidden', width: '700px', zIndex: '15', height: '50px' }} >
+                    <Search/>
+                </div>
+            </Dialog>
             <Toolbar className='tags' style={{ padding: '0' }}>
                 <Link to='/tags/Daerah' style={{ textDecoration: 'none' }}>
                     <h4 style={{ marginRight: '20px', fontSize: '12px', color: 'white' }}>DAERAH</h4>
@@ -12,7 +28,7 @@ const Navigation = () => {
                 <Link to='/tags/Ekobis' style={{ textDecoration: 'none' }}>
                     <h4 style={{ marginRight: '20px', fontSize: '12px', color: 'white' }}>EKOBIS</h4>
                 </Link>
-                <Link to='/tags/HukumKriminal' style={{ textDecoration: 'none' }}>
+                <Link to='/tags/Hukum Kriminal' style={{ textDecoration: 'none' }}>
                     <h4 style={{ marginRight: '20px', fontSize: '12px', color: 'white' }}>HUKUM KRIMINAL</h4>
                 </Link>
                 <Link to='/tags/Nasional' style={{ textDecoration: 'none' }}>
@@ -33,7 +49,7 @@ const Navigation = () => {
                 <Link to='/tags/Teknologi' style={{ textDecoration: 'none' }}>
                     <h4 style={{ marginRight: '20px', fontSize: '12px', color: 'white' }}>TEKNOLOGI</h4>
                 </Link>
-                {/* <Search /> */}
+                <MdSearch style={{ color: 'white', cursor: 'pointer', fontSize:'20px' }} onClick={toogleOpen}/>
             </Toolbar>
         </div>
     );

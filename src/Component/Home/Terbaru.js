@@ -31,7 +31,7 @@ const Terbaru = () => {
                                         return (
                                             <Fragment key={data.id}>
                                                 <Grid item xs={12} sm={12} md={5} lg={5} xl={5} className="gMobile">
-                                                    <Link to={`/berita/${data.id}`} style={{ textDecoration: 'none' }}>
+                                                    <Link to={`/berita/${data.slug}`} style={{ textDecoration: 'none' }}>
                                                         <Box className="boxMobile" style={{ backgroundColor: 'grey', height: '145px', width: '100%', borderRadius: '6px' }}>
                                                             <img src={data.acf.gambar} alt={data.title.rendered} style={{ objectFit: 'cover', backgroundColor: 'grey', height: '145px', width: '100%', borderRadius: '6px' }} />
                                                         </Box>
@@ -43,7 +43,7 @@ const Terbaru = () => {
                                                     </Link>
                                                     <h2 style={{ fontWeight: '500', fontSize: '12px', color: '#808080', textTransform: 'uppercase' }}>{data.acf.penulis} - <Moment locale="id" format="Do MMMM YYYY">{data.date}</Moment></h2>
                                                     <div>
-                                                        <p style={{ fontFamily: 'Roboto', fontSize: '14px', height: '50px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
+                                                        <div style={{ fontFamily: 'Roboto', fontSize: '14px', height: '50px' }} dangerouslySetInnerHTML={{ __html: data.excerpt.rendered }} />
                                                     </div>
                                                     <div style={{display:'flex', alignItems:'center', flexWrap:'wrap'}}>
                                                     {data.acf.tag.map(item => {

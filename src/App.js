@@ -21,25 +21,21 @@ import TagsContextProvider from './Store/TagsContext';
 function App() {
   return (
     <Fragment>
-    <Helmet>
-                <title>Ekspose Sulsel</title>
-                <link rel="canonical" href="https://eksposesulsel.com/" />
-                <meta name="description" content="Portal Berita Sulawesi Selatan" />
-                <meta name="keywords" content="Portal Berita Sulawesi Selatan" />
-            </Helmet>
+      <Helmet>
+        <title>Ekspose Sulsel</title>
+        <link rel="canonical" href="https://eksposesulsel.com/" />
+        <meta name="description" content="Portal Berita Sulawesi Selatan" />
+        <meta name="keywords" content="Portal Berita Sulawesi Selatan" />
+      </Helmet>
       <BrowserRouter>
-        <BeritaContextProvider>
-          <Navbar />
-        </BeritaContextProvider>
-        <div className="margin" style={{ margin: '0 10%' }}>
-          <TagsContextProvider>
-            <BeritaContextProvider>
+        <Navbar />
+        <TagsContextProvider>
+          <BeritaContextProvider>
               <Switch>
                 <Route exact path='/' component={Home} />
                 <Route path='/berita/:id' component={NewsDetails} />
                 <Route path='/tags/Daerah' component={Daerah} />
                 <Route path='/tags/Ekobis' component={Ekobis} />
-                <Route path='/tags/HukumKriminal' component={HukumKriminal} />
                 <Route path='/tags/Hukum Kriminal' component={HukumKriminal} />
                 <Route path='/tags/Nasional' component={Nasional} />
                 <Route path='/tags/Peristiwa' component={Peristiwa} />
@@ -49,9 +45,8 @@ function App() {
                 <Route path='/tags/Teknologi' component={Teknologi} />
                 <Route exact path='/search/:id' component={SearchPage} />
               </Switch>
-            </BeritaContextProvider>
-          </TagsContextProvider>
-        </div>
+          </BeritaContextProvider>
+        </TagsContextProvider>
         <br />
         <Footer />
       </BrowserRouter>

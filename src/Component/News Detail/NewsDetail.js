@@ -52,7 +52,7 @@ const NewsDetail = ({ beritaDetail }) => {
                                 )
                             })}
                             </div>
-                            <p style={{ marginTop: '30px', fontSize: '14px', fontFamily: 'Roboto', lineHeight: '25px' }} dangerouslySetInnerHTML={{ __html: detail[0].content.rendered }} />
+                            <p style={{ marginTop: '30px', fontSize: '16px', fontFamily: 'Roboto', lineHeight: '25px' }} dangerouslySetInnerHTML={{ __html: detail[0].content.rendered }} />
                             <hr style={{ height: '1px', width: '100%', border: 'none', backgroundColor: '#C4C4C4' }} />
                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '170px' }}>
                                 <h3 style={{ fontSize: '14px', fontWeight: '600', color: '#293462' }}>BAGIKAN</h3>
@@ -68,7 +68,7 @@ const NewsDetail = ({ beritaDetail }) => {
                             </div>
                         </Grid>
                         <Grid item xs={12} sm={12} md={4}>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', marginTop:'20px' }}>
+                            <div className="terbaru-detail" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px'}}>
                                 <h2 style={{ fontWeight: 'bold', marginRight: '15px', fontSize: '24px', letterSpacing: '0.1em', marginTop: '0', marginBottom: '0', color: '#293462' }}>TERBARU</h2>
                                 <div style={{ width: '100%', height: '3px', backgroundColor: '#293462' }}></div>
                             </div>

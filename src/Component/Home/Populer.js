@@ -24,7 +24,7 @@ const Populer = () => {
                                             <Box style={{ height: '215px', borderRadius: '6px', backgroundColor: 'grey' }}>
                                                 <img src={data.acf.gambar} alt={data.title.rendered} style={{ height: '215px', width: '100%', borderRadius: '6px', objectFit: 'cover' }} />
                                             </Box>
-                                            <h2 style={{ marginTop: '10px', fontWeight: '600', fontSize: '18px', fontStyle: 'normal', color: '#293462' }}>{data.title.rendered}</h2>
+                                            <h2 className="title-hover" style={{ marginTop: '10px', fontWeight: '600', fontSize: '18px', fontStyle: 'normal', color: '#293462' }}>{data.title.rendered}</h2>
                                         </Link>
                                         <h2 style={{ fontWeight: '500', fontSize: '12px', color: '#808080', textTransform: 'uppercase' }}>{data.acf.penulis} - <Moment locale="id" format="Do MMMM YYYY">{data.date}</Moment></h2>
                                         <div style={{}}>

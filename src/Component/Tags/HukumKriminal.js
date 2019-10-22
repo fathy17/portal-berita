@@ -14,7 +14,7 @@ const HukumKriminal = () => {
 
     return (
         <Fragment>
-            <div style={{ marginTop: '80px' }}>
+            <div className="margin" style={{ marginTop: '80px' }}>
                 <Grid container spacing={3}>
                     <Grid item xs={12} sm={12} md={7} lg={7} xl={7}>
                         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '15px' }}>
@@ -28,9 +28,11 @@ const HukumKriminal = () => {
                                         return (
                                             <Fragment key={data.id}>
                                                 <Grid item xs={12} sm={12} md={5} lg={5} xl={5} className="gMobile">
-                                                    <Box className="boxMobile" style={{ backgroundColor: 'grey', height: '145px', width: '100%', borderRadius: '6px' }}>
-                                                        <img src={data.acf.gambar} alt={data.title.rendered} style={{ objectFit: 'cover', backgroundColor: 'grey', height: '145px', width: '100%', borderRadius: '6px' }} />
-                                                    </Box>
+                                                    <Link to={`/berita/${data.slug}`}>
+                                                        <Box className="boxMobile" style={{ backgroundColor: 'grey', height: '145px', width: '100%', borderRadius: '6px' }}>
+                                                            <img src={data.acf.gambar} alt={data.title.rendered} style={{ objectFit: 'cover', backgroundColor: 'grey', height: '145px', width: '100%', borderRadius: '6px' }} />
+                                                        </Box>
+                                                    </Link>
                                                 </Grid>
                                                 <Grid item xs={12} sm={12} md={7} lg={7} xl={7}>
                                                     <Link to={`/berita/${data.slug}`} style={{ textDecoration: 'none' }}>
@@ -55,7 +57,7 @@ const HukumKriminal = () => {
                                     })}
                                 </Fragment>
                             ) : (
-                                    <div style={{ width: '100%', height: '500px', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '1000000' }}>
+                                    <div style={{ width: '100%', height: '500px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                         <CircularProgress />
                                     </div>
                                 )}

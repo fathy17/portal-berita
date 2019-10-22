@@ -1,6 +1,5 @@
 import React, { Fragment, Component } from 'react';
 import { withRouter } from "react-router";
-import { MdSearch } from 'react-icons/md'
 
 class Search extends Component {
     state = {
@@ -23,14 +22,11 @@ class Search extends Component {
 
     render() {
         return (
-                <Fragment>
-                    <form type="submit" onSubmit={this.handleSubmit} style={{ width: '175px', backgroundColor: '#293462', display: 'flex', justifyContent: 'conter', alignItems: 'center', border: '1px solid white' }}>
-                        <input ref={input => (this.search = input)} onChange={this.handleInputChange} type="text" style={{ height: '19px', fontSize: '12px', marginRight: '4px', backgroundColor: 'transparent', border: 'none', color: 'white' }} />
-                        <MdSearch style={{ color: 'white', cursor: 'pointer', marginLeft:'5px' }} onClick={this.handleSubmit}/>
-                    </form>
-                </Fragment>
-                );
-              }
-            }
-            
+                <form type="submit" onSubmit={this.handleSubmit} style={{ width: '100%', backgroundColor: '#293462' }}>
+                    <input placeholder="Search" ref={input => (this.search = input)} onChange={this.handleInputChange} type="text" style={{ paddingLeft:'30px', zIndex:'32', width:'100%', height: '50px', fontSize: '20px', backgroundColor: 'transparent', border: 'none', color: 'white' }} />
+                </form>
+        );
+    }
+}
+
 export default withRouter(Search);
